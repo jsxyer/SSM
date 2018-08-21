@@ -2,6 +2,8 @@ package com.jsdx.dao;
 
 import java.util.List;
 
+import com.jsdx.entity.Waste_type;
+
 
 /**
  * 数据持久层接口，因为要用Mybatis框架来操作数据库
@@ -13,8 +15,8 @@ import java.util.List;
  */
 public interface Waste_typeDao {
 	//在数据持久化接口中，就是一些操作数据的方法，增、删、改、查的方法比较多
-	public List<Waste_typeDao> find();
-	public int add(Waste_typeDao waste_type);
-	public int update(Waste_typeDao waste_type);
+	public List<Waste_type> find();
+	public int add(Waste_type waste_type);
+	public int update(Waste_type waste_type);
 	public int delete(int id);
 }

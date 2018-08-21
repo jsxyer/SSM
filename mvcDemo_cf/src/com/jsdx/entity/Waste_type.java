@@ -35,4 +35,9 @@ public class Waste_type {
 	public void setCode(String code) {
 		this.code = code;
 	}
+
+	@Override
+	public String toString() {
+		return "Waste_type [type_id=" + type_id + ", name=" + name + ", code=" + code + "]";
+	}
 }
