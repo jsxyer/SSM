@@ -10,16 +10,16 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /**
  * @Title: SqlSessionFactoryUtil
- * @Description: ÕâÊÇÒ»¸ö¹¤¾ßÀà£¬ÏòÍâ¹«¿ªÒ»¸ö·½·¨£¬»ñÈ¡SqlSession¶ÔÏóµÄ·½·¨
+ * @Description: è¿™æ˜¯ä¸€ä¸ªå·¥å…·ç±»ï¼Œå‘å¤–å…¬å¼€ä¸€ä¸ªæ–¹æ³•ï¼Œè·å–SqlSessionå¯¹è±¡çš„æ–¹æ³•
  * @Company: varote
- * @author: ³Â·¢
- * @create_time: 2018Äê8ÔÂ21ÈÕ ÏÂÎç4:02:38
+ * @author: é™ˆå‘
+ * @create_time: 2018å¹´8æœˆ21æ—¥ ä¸‹åˆ4:02:38
  */
 public class SqlSessionFactoryUtil {
 	static InputStream inputStream = null;
 	static SqlSessionFactory sqlSessionFactory = null;
 	/*
-	 * ¾²Ì¬¿ìµÄ×÷ÓÃÊÇ¼ÓÔØÖ÷ÅäÖÃÎÄ¼ş£¬°ÑÅäÖÃÎÊ¼ÛĞÎ³ÉÒ»¸öÊäÈëÁ÷
+	 * é™æ€å¿«çš„ä½œç”¨æ˜¯åŠ è½½ä¸»é…ç½®æ–‡ä»¶ï¼ŒæŠŠé…ç½®é—®ä»·å½¢æˆä¸€ä¸ªè¾“å…¥æµ
 	 */
 	static {
 		String resource = "config/mybatis-config.xml";
@@ -31,7 +31,7 @@ public class SqlSessionFactoryUtil {
 	}
 
 	/*
-	 * ´´½¨SqlSessionFactory¹¤³§£¬¹¤³§Ö»ÓĞÒ»¸ö£¬ËùÒÔ×ö³Éµ¥ÀıÄ£Ê½
+	 * åˆ›å»ºSqlSessionFactoryå·¥å‚ï¼Œå·¥å‚åªæœ‰ä¸€ä¸ªï¼Œæ‰€ä»¥åšæˆå•ä¾‹æ¨¡å¼
 	 */
 	private static SqlSessionFactory getSqlSessionFactory() {
 		if (sqlSessionFactory == null) {
@@ -41,11 +41,11 @@ public class SqlSessionFactoryUtil {
 	}
 
 	/*
-	 * ÏòÍâ¹«¿ªÒ»¸ö·½·¨£¬·µ»ØSqlSession¶ÔÏó£¬´Ë¶ÔÏóÒÀÀµSqlSessionFactory¹¤³§À´´´½¨
+	 * å‘å¤–å…¬å¼€ä¸€ä¸ªæ–¹æ³•ï¼Œè¿”å›SqlSessionå¯¹è±¡ï¼Œæ­¤å¯¹è±¡ä¾èµ–SqlSessionFactoryå·¥å‚æ¥åˆ›å»º
 	 */
 	public static SqlSession getSqlSession() {
 		/*
-		 * ¹¤³§¶ÔÏóµ÷ÓÃopenSession()·½·¨¿É´´½¨SqlSession¶ÔÏó
+		 * å·¥å‚å¯¹è±¡è°ƒç”¨openSession()æ–¹æ³•å¯åˆ›å»ºSqlSessionå¯¹è±¡
 		 */
 		return getSqlSessionFactory().openSession();
 	}

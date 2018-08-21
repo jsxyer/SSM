@@ -7,15 +7,15 @@ import com.jsdx.service.Waste_typeService;
 
 /**
  * @Title: Waste_typeController
- * @Description: ÓÃÓÚ½ÓÊÕ¿Í»§¶ÎµÄÇëÇó£¬ºóÌ¨´¦Àíºó£¬·µ»Ø¸ø¿Í»§¶Î
+ * @Description: ç”¨äºæ¥æ”¶å®¢æˆ·æ®µçš„è¯·æ±‚ï¼Œåå°å¤„ç†åï¼Œè¿”å›ç»™å®¢æˆ·æ®µ
  * @Company: varote
- * @author: ³Â·¢
- * @create_time: 2018Äê8ÔÂ21ÈÕ ÏÂÎç12:03:46
+ * @author: é™ˆå‘
+ * @create_time: 2018å¹´8æœˆ21æ—¥ ä¸‹åˆ12:03:46
  */
 public class Waste_typeController {
-	//ÒòÎªÖ»ÊÇÑ§Ï°MyBatis¿ò¼Ü£¬²»ĞèÒªÓÃµ½
+	//å› ä¸ºåªæ˜¯å­¦ä¹ MyBatisæ¡†æ¶ï¼Œä¸éœ€è¦ç”¨åˆ°
 	public static void main(String[] args) {
-		//µ÷ÓÃÒµÎñ²ãµÄ·½·¨
+		//è°ƒç”¨ä¸šåŠ¡å±‚çš„æ–¹æ³•
 		List<Waste_type> list = new Waste_typeService().find();
 		for (Waste_type waste_type : list) {
 			System.out.println(waste_type);

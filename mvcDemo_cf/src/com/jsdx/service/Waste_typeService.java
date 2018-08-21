@@ -10,24 +10,24 @@ import com.jsdx.utils.SqlSessionFactoryUtil;
 
 /**
  * @Title: Waste_typeService
- * @Description: Waste_type·şÎñ²ã£¬ÎªcontrollerÌá¹©·şÎñ
+ * @Description: Waste_typeæœåŠ¡å±‚ï¼Œä¸ºcontrolleræä¾›æœåŠ¡
  * @Company: varote
- * @author: ³Â·¢
- * @create_time: 2018Äê8ÔÂ21ÈÕ ÏÂÎç12:04:28
+ * @author: é™ˆå‘
+ * @create_time: 2018å¹´8æœˆ21æ—¥ ä¸‹åˆ12:04:28
  */
 public class Waste_typeService {
 	/*
-	 * ĞèÒªMyBatisµÄAPIÀ´²Ù×÷Êı¾İ
+	 * éœ€è¦MyBatisçš„APIæ¥æ“ä½œæ•°æ®
 	 */
 	public List<Waste_type> find(){
 		SqlSession sqlSession = null;
 		List<Waste_type> list = null;
 		try{
-			//µ÷ÓÃ¹¤¾ßÀàÈ¡µ½sqlSession¶ÔÏó
+			//è°ƒç”¨å·¥å…·ç±»å–åˆ°sqlSessionå¯¹è±¡
 			sqlSession = SqlSessionFactoryUtil.getSqlSession();
-			//µ÷ÓÃgetMapper·½·¨»ñÈ¡µ½Êı¾İ³Ö¾Ã»¯½Ó¿ÚµÄ´úÀí¶ÔÏó
+			//è°ƒç”¨getMapperæ–¹æ³•è·å–åˆ°æ•°æ®æŒä¹…åŒ–æ¥å£çš„ä»£ç†å¯¹è±¡
 			Waste_typeDao dao =  sqlSession.getMapper(Waste_typeDao.class);
-			//µ÷ÓÃ´úÀí¶ÔÏóµÄ·½·¨£¬»á×Ô¶¯È¥Ö´ĞĞÊı¾İ³Ö¾Ã»¯½Ó¿Ú¶ÔÓ¦µÄÓ³ÉäÎÄ¼şµÄÖ¸Áî
+			//è°ƒç”¨ä»£ç†å¯¹è±¡çš„æ–¹æ³•ï¼Œä¼šè‡ªåŠ¨å»æ‰§è¡Œæ•°æ®æŒä¹…åŒ–æ¥å£å¯¹åº”çš„æ˜ å°„æ–‡ä»¶çš„æŒ‡ä»¤
 			list = dao.find();
 		}catch (Exception e) {
 			System.out.println(e.getMessage());

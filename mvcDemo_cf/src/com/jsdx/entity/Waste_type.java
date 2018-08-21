@@ -2,10 +2,10 @@ package com.jsdx.entity;
 
 /**
  * @Title: Waste_type
- * @Description: Waste_type±íµÄÊµÌåÀà
+ * @Description: Waste_typeè¡¨çš„å®ä½“ç±»
  * @Company: varote
- * @author: ³Â·¢
- * @create_time: 2018Äê8ÔÂ21ÈÕ ÏÂÎç12:02:10
+ * @author: é™ˆå‘
+ * @create_time: 2018å¹´8æœˆ21æ—¥ ä¸‹åˆ12:02:10
  */
 public class Waste_type {
 	private int type_id;
