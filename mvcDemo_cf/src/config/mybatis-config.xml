@@ -46,6 +46,7 @@
 		<!-- 把这个包中所有的映射文件加载到MyBatis中，只能在映射文件与数据持久化接口类同一目录使用，
 			如果不在同一目录中，则只能用mapper这个节点引用
 		 -->
-		<mapper resource="com/etc/mappers/UserMapper.xml" />
+		<!-- <mapper resource="com/etc/mappers/UserMapper.xml" /> -->
+		 <package name="com.jsdx.dao"/>
 	</mappers>
 </configuration>
