@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jsdx.dao.Waste_typeDao">
+	<!-- 指令，id值要与持久化类的方法名相同 , resultType="Waste_type" 用的是别名-->
+	<select id="find" resultType="Waste_type">
+		select * from waste_type
+	</select>
+</mapper>

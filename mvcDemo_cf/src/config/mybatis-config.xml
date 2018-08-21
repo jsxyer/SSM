@@ -13,35 +13,39 @@
 	</settings>
 	<!-- 给实体取别名，可以简化后面对实体对象的引用操作com.jsdx.entity.Waste_type -->
 	<typeAliases>
-		<!-- 一次只能给一个类声明别名，当一个项目中有很多类时，会导致代码冗余 <typeAlias type="com.jsdx.entity.Waste_type" 
-			alias="Waste_type" /> -->
-		<package name="com.jsdx.entity"/>
+		<!-- 一次只能给一个类声明别名，当一个项目中有很多类时，会导致代码冗余 -->
+		<!-- <typeAlias type="com.jsdx.entity.Waste_type" alias="Waste_type" /> -->
+		<package name="com.jsdx.entity" />
 	</typeAliases>
-	<!-- 环境配置，MyBatis与数据库交互的环境，在开发中，可能会配置多个环境：开发，运行，测试 
-			default：属性标识使用哪一个环境配置			
-	-->
+	<!-- 环境配置，MyBatis与数据库交互的环境，在开发中，可能会配置多个环境：开发，运行，测试 default：属性标识使用哪一个环境配置 -->
 	<!-- 对事务的管理和连接池的配置 -->
 	<environments default="development">
 		<environment id="development">
-			<!-- 事务管理机制，type，有两个值可取：JDBC | MANAGER 建议用JDBC
-				JDBC - 这个配置就是直接使用了JDBC的提交和回滚设置，
-				它依赖于从数据源得到的连接来管理事物作用域，
-				MANAGER - 这个配置几乎没做什么，它从来不提交或回滚一个连接，
-				而是让容器来管理事物的整个生命周期（比如JEE 应用服务器的上下文），
-				默认情况下它会关闭连接，然而一些容器并不希望这样，
-				因此需要将closeConnection 属性设置为false 来阻止它默认的关闭行为
-			 -->
+			<!-- 事务管理机制，type，有两个值可取：JDBC | MANAGER 建议用JDBC JDBC - 这个配置就是直接使用了JDBC的提交和回滚设置， 
+				它依赖于从数据源得到的连接来管理事物作用域， MANAGER - 这个配置几乎没做什么，它从来不提交或回滚一个连接， 而是让容器来管理事物的整个生命周期（比如JEE 
+				应用服务器的上下文）， 默认情况下它会关闭连接，然而一些容器并不希望这样， 因此需要将closeConnection 属性设置为false 来阻止它默认的关闭行为 -->
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="${driver}" />
 				<property name="url" value="${url}" />
 				<property name="username" value="${username}" />
 				<property name="password" value="${password}" />
+				<property name="poolMaximumActiveConnections" value="${maxinumActive}" />
 			</dataSource>
 		</environment>
 	</environments>
+	
+	<!-- 映射器配置，加载所有的映射文件或者是加载持久化接口 
+		MyBatis 映射文件可以使XML格式，也可以直接在持久化接口上加注解配置，
+		推荐使用xml格式，因为目前配置还不是非常的完善，导致有时需要写重复的代码，
+		一个映射文件只针对一个表进行操作，映射文件的命名建议与数据持久化接口类名一致
+	-->
+	
 	<!-- mapping 文件路径配置 -->
 	<mappers>
+		<!-- 把这个包中所有的映射文件加载到MyBatis中，只能在映射文件与数据持久化接口类同一目录使用，
+			如果不在同一目录中，则只能用mapper这个节点引用
+		 -->
 		<mapper resource="com/etc/mappers/UserMapper.xml" />
 	</mappers>
 </configuration>

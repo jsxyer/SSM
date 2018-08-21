@@ -11,10 +11,10 @@ import java.util.List;
  * 
  * 命名规则：表名 + dao
  */
-public interface Waste_type {
+public interface Waste_typeDao {
 	//在数据持久化接口中，就是一些操作数据的方法，增、删、改、查的方法比较多
-	public List<Waste_type> find();
-	public int add(Waste_type waste_type);
-	public int update(Waste_type waste_type);
+	public List<Waste_typeDao> find();
+	public int add(Waste_typeDao waste_type);
+	public int update(Waste_typeDao waste_type);
 	public int delete(int id);
 }
