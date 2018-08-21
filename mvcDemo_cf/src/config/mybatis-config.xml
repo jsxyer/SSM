@@ -2,14 +2,35 @@
 <!DOCTYPE configuration  
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- 根节点，节点的名称是特有的，不能改变 -->
 <configuration>
+	<!-- 子节点的名称及顺序也是特定的 -->
+	<!-- 此节点的作用引用外部的属性文件，这个属性通常是连接数据库的相关信息 -->
 	<properties resource="jdbc.properties" />
+	<!-- 设置MyBatis框架运行的参数，通常情况下，只需要运用它的默认环境 -->
+	<settings>
+		<setting name="cacheEnabled" value="true" />
+	</settings>
+	<!-- 给实体取别名，可以简化后面对实体对象的引用操作com.jsdx.entity.Waste_type -->
 	<typeAliases>
-		<typeAlias type="com.etc.model.User" alias="User" />
+		<!-- 一次只能给一个类声明别名，当一个项目中有很多类时，会导致代码冗余 <typeAlias type="com.jsdx.entity.Waste_type" 
+			alias="Waste_type" /> -->
+		<package name="com.jsdx.entity"/>
 	</typeAliases>
+	<!-- 环境配置，MyBatis与数据库交互的环境，在开发中，可能会配置多个环境：开发，运行，测试 
+			default：属性标识使用哪一个环境配置			
+	-->
 	<!-- 对事务的管理和连接池的配置 -->
 	<environments default="development">
 		<environment id="development">
+			<!-- 事务管理机制，type，有两个值可取：JDBC | MANAGER 建议用JDBC
+				JDBC - 这个配置就是直接使用了JDBC的提交和回滚设置，
+				它依赖于从数据源得到的连接来管理事物作用域，
+				MANAGER - 这个配置几乎没做什么，它从来不提交或回滚一个连接，
+				而是让容器来管理事物的整个生命周期（比如JEE 应用服务器的上下文），
+				默认情况下它会关闭连接，然而一些容器并不希望这样，
+				因此需要将closeConnection 属性设置为false 来阻止它默认的关闭行为
+			 -->
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="${driver}" />
