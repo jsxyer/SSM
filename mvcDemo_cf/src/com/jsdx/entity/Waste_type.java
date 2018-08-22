@@ -1,28 +1,31 @@
 package com.jsdx.entity;
 
 import java.sql.Time;
+import java.util.Date;
 
 /**
- * @Title: Waste_type
- * @Description: Waste_type表的实体类
- * @Company: varote
- * @author: 陈发
- * @create_time: 2018年8月21日 下午12:02:10
+ * @title: Waste_type
+ * @package: com.jsdx.entity
+ * @description: Waste_type表的实体类
+ * @author: chenfa
+ * @date: 2018年8月22日 下午3:09:00
+ * @version: V1.0
  */
 public class Waste_type {
-	private int id;
+
+	private Integer id;
 	private String name;
 	private String code;
-	private Time create_date;
-	private Time update_date;
+	private Date create_date;
+	private Date update_date;
 	private String del_flag;
 	private String create_by;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -42,19 +45,19 @@ public class Waste_type {
 		this.code = code;
 	}
 
-	public Time getCreate_date() {
+	public Date getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Time create_date) {
+	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
 
-	public Time getUpdate_date() {
+	public Date getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Time update_date) {
+	public void setUpdate_date(Date update_date) {
 		this.update_date = update_date;
 	}
 
@@ -79,4 +82,5 @@ public class Waste_type {
 		return "Waste_type [id=" + id + ", name=" + name + ", code=" + code + ", create_date=" + create_date
 				+ ", update_date=" + update_date + ", del_flag=" + del_flag + ", create_by=" + create_by + "]";
 	}
+
 }
