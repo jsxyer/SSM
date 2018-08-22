@@ -25,7 +25,7 @@ public class Waste_typeService {
 		try{
 			//调用工具类取到sqlSession对象
 			sqlSession = SqlSessionFactoryUtil.getSqlSession();
-			//调用getMapper方法获取到数据持久化接口的代理对象
+			//调用getMapper方法获取到数据持久化接口的代理对象，此对象为传入 类 的 子类
 			Waste_typeDao dao =  sqlSession.getMapper(Waste_typeDao.class);
 			//调用代理对象的方法，会自动去执行数据持久化接口对应的映射文件的指令
 			list = dao.find();
