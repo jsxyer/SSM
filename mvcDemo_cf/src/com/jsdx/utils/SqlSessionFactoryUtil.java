@@ -43,7 +43,7 @@ public class SqlSessionFactoryUtil {
 		 * 			加锁 synchronized ，锁方法或变量
 		 */
 		
-		if(sqlSessionFactory != null){	//写到这一层：懒汉式单例模式
+		if(sqlSessionFactory == null){	//写到这一层：懒汉式单例模式
 			synchronized (lock) {	//只写到这一层存在新能问题
 				if (sqlSessionFactory == null) {	//只写到这一层存在线程不安全问题：饿汉单例模式
 					sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
