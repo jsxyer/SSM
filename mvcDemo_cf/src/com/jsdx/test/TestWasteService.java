@@ -40,7 +40,7 @@ public class TestWasteService {
 		}
 	}
 
-	// @Test
+	@Test
 	/**
 	 * @title: findById
 	 * @description: 通过ID查询记录;测试通过
