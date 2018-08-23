@@ -19,10 +19,10 @@ import java.util.Date;
  */
 public class Waste {
 	private int id;
-	private int waste_type_id;
-	private String name;
+	//private int waste_type_id;
 	/** 用废物类型的对象存放废物类型 **/
 	private Waste_type waste_type;
+	private String name;
 	private String hazardous_characteristics;
 	private int industry_from_id;
 	private Date create_date;
@@ -36,14 +36,6 @@ public class Waste {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getWaste_type_id() {
-		return waste_type_id;
-	}
-
-	public void setWaste_type_id(int waste_type_id) {
-		this.waste_type_id = waste_type_id;
 	}
 
 	public String getName() {
@@ -112,10 +104,9 @@ public class Waste {
 
 	@Override
 	public String toString() {
-		return "Waste [id=" + id + ", waste_type_id=" + waste_type_id + ", name=" + name + ", waste_type=" + waste_type
-				+ ", hazardous_characteristics=" + hazardous_characteristics + ", industry_from_id=" + industry_from_id
-				+ ", create_date=" + create_date + ", update_date=" + update_date + ", del_flag=" + del_flag
-				+ ", create_by=" + create_by + "]";
+		return "Waste [id=" + id + ", waste_type=" + waste_type + ", name=" + name + ", hazardous_characteristics="
+				+ hazardous_characteristics + ", industry_from_id=" + industry_from_id + ", create_date=" + create_date
+				+ ", update_date=" + update_date + ", del_flag=" + del_flag + ", create_by=" + create_by + "]";
 	}
 
 }
