@@ -7,10 +7,10 @@
 	<!-- 子节点的名称及顺序也是特定的 -->
 	<!-- 此节点的作用引用外部的属性文件，这个属性通常是连接数据库的相关信息 -->
 	<properties resource="config/jdbc.properties" />
-	<!-- 设置MyBatis框架运行的参数，通常情况下，只需要运用它的默认环境
+	<!-- 设置MyBatis框架运行的参数，通常情况下，只需要运用它的默认环境 -->
 	<settings>
 		<setting name="cacheEnabled" value="true" />
-	</settings> -->
+	</settings> 
 	<!-- 给实体取别名，可以简化后面对实体对象的引用操作com.jsdx.entity.Waste_type -->
 	<typeAliases>
 		<!-- 一次只能给一个类声明别名，当一个项目中有很多类时，会导致代码冗余 -->

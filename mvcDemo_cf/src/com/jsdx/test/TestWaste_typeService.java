@@ -76,7 +76,7 @@ public class TestWaste_typeService {
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午4:59:28
 	 */
-	@Test
+	//@Test
 	public void findById() {
 		System.out.println("-----start-----test-----findById------------------------------");
 		int id = 30;
@@ -91,7 +91,7 @@ public class TestWaste_typeService {
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午7:26:53
 	 */
-	@Test
+	//@Test
 	public void delete() {
 		System.out.println("-----start-----test-----delete------------------------------");
 		Waste_typeService service = new Waste_typeService();
@@ -109,7 +109,7 @@ public class TestWaste_typeService {
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午7:33:08
 	 */
-	@Test
+	//@Test
 	public void update() {
 		System.out.println("-----start-----test-----update------------------------------");
 		int id = 52;

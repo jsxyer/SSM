@@ -7,6 +7,7 @@
  */
 package com.jsdx.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -17,7 +18,8 @@ import java.util.Date;
  * @date: 2018年8月23日 上午9:23:09
  * @version: V1.0
  */
-public class Waste {
+public class Waste implements Serializable{
+	private static final long serialVersionUID = 2247582451699400761L;
 	private int id;
 	//private int waste_type_id;
 	/** 用废物类型的对象存放废物类型 **/

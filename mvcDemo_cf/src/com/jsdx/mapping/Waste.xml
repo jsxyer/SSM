@@ -4,25 +4,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace:作用是把映射文件与持久化接口类进行映射 -->
 <mapper namespace="com.jsdx.dao.WasteDao">
+	<!-- 二级缓存，模式为FIFO，刷新时间60000毫秒，缓存数量512 -->
+	<cache eviction="FIFO" flushInterval="60000" size="512"/>
 	<!-- 有外键的情况，多对一 -->
 	<resultMap id="wasteMap" type="Waste">
-	<!-- resultMap中，可以不写字段名相同的映射，只需要写字段名不同的映射 -->
+		<!-- resultMap中，可以不写字段名相同的映射，只需要写字段名不同的映射 -->
 		<!-- 废物类型的映射 -->
 		<!-- <result property="waste_type.id" column="parent_id"/> -->
-		
-		<!-- 废物类型映射，可以根据外键值进一步查询，获取到外键对象并保存在对应的属性中
-			property ： 外键对象列，	column ：外键值，select：是要调用的持久层的方法
-		 -->
-		 <association property="waste_type" column="waste_type_id" select="com.jsdx.dao.Waste_typeDao.findById"></association>
+
+		<!-- 废物类型映射，可以根据外键值进一步查询，获取到外键对象并保存在对应的属性中 property ： 外键对象列， column ：外键值，select：是要调用的持久层的方法 -->
+		<association property="waste_type" column="waste_type_id"
+			select="com.jsdx.dao.Waste_typeDao.findById"></association>
 	</resultMap>
-	
+
 	<!-- 查找所有数据 -->
-	<select id="find" resultMap="wasteMap">
-		select * from waste
+	<select id="find" resultMap="wasteMap" useCache="true">
+		select * from waste limit 50
 	</select>
-	
+
 	<!-- 通过id查询废物 -->
-	<select id="findByTypeId" parameterType="int" resultMap="wasteMap">
-		select * from waste where waste_type_id=#{id}
+	<select id="findByTypeId" parameterType="int" resultMap="wasteMap" useCache="true">
+		select *
+		from waste where waste_type_id=#{id}
 	</select>
 </mapper>

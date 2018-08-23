@@ -31,25 +31,25 @@ public class TestWasteService {
 	 * @author: chenfa
 	 * @date: 2018年8月23日 上午10:40:24
 	 */
-	// @Test
+	@Test
 	public void find() {
 		WasteService service = new WasteService();
 		List<Waste> list = service.find();
 		for (Waste waste : list) {
 			System.out.println(waste);
-		}
+		}			
 	}
 
-	@Test
 	/**
 	 * @title: findById
 	 * @description: 通过ID查询记录;测试通过
 	 * @author: chenfa
 	 * @date: 2018年8月23日 下午2:22:49
 	 */
+	//@Test
 	public void findById() {
 		WasteService service = new WasteService();
-		List<Waste> list = service.findByTypeId(1);
+		List<Waste> list = service.findByTypeId(2);
 		for (Waste waste : list) {
 			System.out.println(waste);
 		}
@@ -61,7 +61,7 @@ public class TestWasteService {
 	 * @author: chenfa
 	 * @date: 2018年8月23日 下午2:23:12
 	 */
-	@Test
+	//@Test
 	public void findByIdAll() {
 		List<Waste_type> waste_typeServices = new Waste_typeService().find();
 		for (Waste_type waste_type : waste_typeServices) {
