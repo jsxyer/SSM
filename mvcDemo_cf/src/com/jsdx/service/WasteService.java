@@ -43,4 +43,25 @@ public class WasteService {
 		}
 		return list;
 	}
+	
+	/**
+	 * @title: findByTypeId
+	 * @description: 通过ID查找信息
+	 * @author: chenfa
+	 * @date: 2018年8月23日 下午2:21:09
+	 * @param id Waste的ID
+	 * @return 符合ID的List集合
+	 */
+	public List<Waste> findByTypeId(int id){
+		SqlSession sqlSession = null;
+		List<Waste> list = null;
+		try {
+			sqlSession = SqlSessionFactoryUtil.getSqlSession();
+			WasteDao dao = sqlSession.getMapper(WasteDao.class);
+			list = dao.findByTypeId(id);
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
 }

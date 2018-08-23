@@ -28,4 +28,13 @@ public interface WasteDao {
 	 * @return 封装后的List集合
 	 */
 	public List<Waste> find();
+	/**
+	 * @title: findByTypeId
+	 * @description: 根据废物类型的编号查询所有的废物信息
+	 * @author: chenfa
+	 * @date: 2018年8月23日 上午11:24:20
+	 * @param id 废物类型id
+	 * @return 
+	 */
+	public List<Waste> findByTypeId(int id);
 }

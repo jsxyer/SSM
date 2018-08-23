@@ -53,7 +53,8 @@
 			如果不在同一目录中，则只能用mapper这个节点引用
 		 -->
 		<!-- 此方法用于单个文件进行映射 -->
-		<!-- <mapper resource="com/etc/mappers/UserMapper.xml" /> -->
-		 <package name="com.jsdx.dao"/>
+		<mapper resource="com/jsdx/mapping/Waste_type.xml" />
+		<mapper resource="com/jsdx/mapping/Waste.xml"/>
+		<!-- <package name="com.jsdx.dao"/> -->
 	</mappers>
 </configuration>

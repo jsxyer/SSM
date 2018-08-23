@@ -1,6 +1,7 @@
 package com.jsdx.entity;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @title: Waste_type
@@ -19,6 +20,9 @@ public class Waste_type {
 	private Date update_date;
 	private String del_flag;
 	private String create_by;
+	
+	/** 一对多List 存储类型下所有的废物信息列表 **/
+	private List<Waste> wastes;
 
 	public Integer getId() {
 		return id;
@@ -75,11 +79,21 @@ public class Waste_type {
 	public void setCreate_by(String create_by) {
 		this.create_by = create_by;
 	}
+	
+
+	public List<Waste> getWastes() {
+		return wastes;
+	}
+
+	public void setWastes(List<Waste> wastes) {
+		this.wastes = wastes;
+	}
 
 	@Override
 	public String toString() {
 		return "Waste_type [id=" + id + ", name=" + name + ", code=" + code + ", create_date=" + create_date
-				+ ", update_date=" + update_date + ", del_flag=" + del_flag + ", create_by=" + create_by + "]";
+				+ ", update_date=" + update_date + ", del_flag=" + del_flag + ", create_by=" + create_by + ", wastes="
+				+ wastes + "]";
 	}
 
 }
