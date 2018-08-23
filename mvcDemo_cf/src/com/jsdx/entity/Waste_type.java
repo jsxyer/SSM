@@ -1,6 +1,5 @@
 package com.jsdx.entity;
 
-import java.sql.Time;
 import java.util.Date;
 
 /**

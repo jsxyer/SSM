@@ -91,7 +91,7 @@ public class TestWaste_typeService {
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午7:26:53
 	 */
-	// @Test
+	@Test
 	public void delete() {
 		System.out.println("-----start-----test-----delete------------------------------");
 		Waste_typeService service = new Waste_typeService();

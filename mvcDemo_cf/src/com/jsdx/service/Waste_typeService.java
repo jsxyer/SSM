@@ -51,9 +51,9 @@ public class Waste_typeService {
 	 * @title: findById
 	 * @description: 调用dao层findById方法
 	 * @author: chenfa
-	 * @date: 2018年8月22日 下午3:33:40
-	 * @param: waste_type waste_type对象的id
-	 * @return: Waste_type对象
+	 * @date: 2018年8月23日 上午9:08:59
+	 * @param id waste_type对象的id
+	 * @return Waste_type对象
 	 */
 	public Waste_type findById(int id) {
 		/** 使用此对象操作数据库 **/
@@ -80,7 +80,7 @@ public class Waste_typeService {
 	 * @description: 添加一条新数据到waste_type表
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午3:56:48
-	 * @param: waste_type
+	 * @param waste_type
 	 *             waste_type对象
 	 * @return: 受影响的条数
 	 */
@@ -105,7 +105,7 @@ public class Waste_typeService {
 	 * @description: 更新数据库记录
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午4:25:00
-	 * @param: waste_type
+	 * @param waste_type
 	 *             waste_type对象
 	 * @return: 受影响的条数
 	 */
@@ -130,7 +130,7 @@ public class Waste_typeService {
 	 * @description: 到用dao层delete方法
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午4:31:40
-	 * @param: id
+	 * @param id
 	 *             waste_type对象的id
 	 * @return: 受影响的条数
 	 */

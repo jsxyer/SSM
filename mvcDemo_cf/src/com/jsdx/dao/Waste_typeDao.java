@@ -34,7 +34,7 @@ public interface Waste_typeDao {
 	 * @description: 返回id对应的数据
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午3:33:40
-	 * @param: waste_type对象的id
+	 * @param id waste_type对象的id
 	 * @return: Waste_type对象 
 	 */
 	public Waste_type findById(int id);
@@ -44,7 +44,7 @@ public interface Waste_typeDao {
 	 * @description: 添加waste_type到数据库
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午3:34:06
-	 * @param: waste_type 传入一个waste_type对象
+	 * @param waste_type 传入一个waste_type对象
 	 * @return: 受影响的条数 
 	 */
 	public int add(Waste_type waste_type);
@@ -54,7 +54,7 @@ public interface Waste_typeDao {
 	 * @description: 更新数据
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午3:34:45
-	 * @param: waste_type 传入一个waste_type对象
+	 * @param waste_type 传入一个waste_type对象
 	 * @return: 受影响的条数
 	 */
 	public int update(Waste_type waste_type);
@@ -64,7 +64,7 @@ public interface Waste_typeDao {
 	 * @description: 通过id删除数据
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午3:35:28
-	 * @param: id waste_type对象的id
+	 * @param id waste_type对象的id
 	 * @return: 受影响的条数
 	 */
 	public int delete(int id);

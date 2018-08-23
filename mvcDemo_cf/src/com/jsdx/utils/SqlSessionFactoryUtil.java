@@ -9,11 +9,12 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 /**
- * @Title: SqlSessionFactoryUtil
- * @Description: 这是一个工具类，向外公开一个方法，获取SqlSession对象的方法
- * @Company: varote
- * @author: 陈发
- * @create_time: 2018年8月21日 下午4:02:38
+ * @title: SqlSessionFactoryUtil
+ * @package: com.jsdx.utils
+ * @description: 这是一个工具类，向外公开一个方法，获取SqlSession对象的方法
+ * @author: chenfa
+ * @date: 2018年8月23日 上午9:13:32
+ * @version: V1.0
  */
 public class SqlSessionFactoryUtil {
 	static InputStream inputStream = null;
