@@ -1,6 +1,7 @@
 package com.jsdx.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -16,7 +17,7 @@ import com.jsdx.utils.SqlSessionFactoryUtil;
  * @date: 2018年8月22日 下午3:46:56
  * @version: V1.0
  */
-public class Waste_typeService {
+public class Waste_typeService implements Waste_typeDao{
 	/*
 	 * 需要MyBatis的API来操作数据
 	 */
@@ -148,5 +149,34 @@ public class Waste_typeService {
 			sqlSession.close();
 		}
 		return count;
+	}
+
+	/**   
+	 * @title: getPage
+	 * @description: 获取分页的数据
+	 * @param start 从第几条数据开始取，第一条为1
+	 * @param end 取几条数据
+	 * @return 封装后的List集合
+	 * @see com.jsdx.dao.Waste_typeDao#getPage(int, int)     
+	 */ 
+	@Override
+	public List<Waste_type> getPage(Map<String,Integer> map) {
+		/** 使用此对象操作数据库 **/
+		SqlSession sqlSession = null;
+		/** 接收返回的结果集 **/
+		List<Waste_type> list = null;
+		try {
+			// 调用工具类取到sqlSession对象
+			sqlSession = SqlSessionFactoryUtil.getSqlSession();
+			// 调用getMapper方法获取到数据持久化接口的代理对象，此对象为传入 类 的 子类
+			Waste_typeDao dao = sqlSession.getMapper(Waste_typeDao.class);
+			// 调用代理对象的方法，会自动去执行数据持久化接口对应的映射文件的指令
+			list = dao.getPage(map);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			sqlSession.close();
+		}
+		return list;
 	}
 }

@@ -1,6 +1,7 @@
 package com.jsdx.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.jsdx.entity.Waste_type;
 
@@ -68,4 +69,6 @@ public interface Waste_typeDao {
 	 * @return: 受影响的条数
 	 */
 	public int delete(int id);
+	
+	public List<Waste_type> getPage(Map<String,Integer> map);
 }

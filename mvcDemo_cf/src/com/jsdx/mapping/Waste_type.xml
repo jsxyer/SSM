@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jsdx.dao.Waste_typeDao">
 	<!-- 二级缓存，模式为FIFO，刷新时间60000毫秒，缓存数量512 -->
-	<cache eviction="FIFO" flushInterval="60000" size="512"/>
+	<cache eviction="FIFO" flushInterval="60000" size="512" />
 	<!-- 用于表的字段与实体对象的属性映射，type:表示映射成某种类型 用于字段名与实体类字段名不一致 实体类字段名与数据库表字段名一致时，使用resultType -->
 
 	<resultMap id="waste_typeMap" type="Waste_type">
@@ -13,7 +13,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<!-- result:表示这一列是非主键和外键之外的普通列 -->
 		<result column="name" property="name" />
 		<result column="code" property="code" />
-		<!-- 一对多的关系 ，用集合来存储 -->
+		<!-- 一对多的关系 ，用集合来存储 
+			property:用于存放映射后的结果集
+			column:指定结果集中的那一个属性进行映射，一般为主键
+			select:调用的查询方法
+		-->
 		<collection property="wastes" column="id"
 			select="com.jsdx.dao.WasteDao.findByTypeId"></collection>
 	</resultMap>
@@ -24,13 +28,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 因为字段名和数据库字段名匹配，所以使用resultType. 不匹配需设置resultMap并使用 -->
 	<!-- 查找所有的记录 -->
 	<select id="find" resultMap="waste_typeMap" useCache="true">
-		select * from waste_type limit 50
+		select *
+		from waste_type
 	</select>
 
 	<!-- 通过id查找记录 #{id}是占位符，会自动把传入的参数填充进来，占位符的名称与参数名没有关联 -->
-	<select id="findById" parameterType="int" resultType="Waste_type" useCache="true">
+	<select id="findById" parameterType="int" resultType="Waste_type"
+		useCache="true">
 		select *
 		from waste_type where id = #{id}
+	</select>
+	
+	<select id="getPage" parameterType="map" resultMap="waste_typeMap">
+		select * from waste_type limit #{begin},#{end}
 	</select>
 
 	<!-- 下面是增删改 parameterType="waste_type"别名，能自动获取数据库中受影响的行数 #{wasteName},#{wasteCode}占位符是从参数对象的属性中取数据 

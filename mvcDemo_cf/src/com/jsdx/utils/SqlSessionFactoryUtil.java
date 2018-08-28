@@ -17,12 +17,14 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  * @version: V1.0
  */
 public class SqlSessionFactoryUtil {
+	/** 文件输入流 **/
 	static InputStream inputStream = null;
+	/** 负责创建SqlSession对象的工厂，一般使用单例模式 **/
 	static SqlSessionFactory sqlSessionFactory = null;
-	
+	/** 此对象在类中为同步锁使用的对象 **/
 	static Object lock = new Object();
 	/*
-	 * 静态快的作用是加载主配置文件，把配置问价形成一个输入流
+	 * 静态块的作用是加载主配置文件，把配置文件形成一个输入流
 	 */
 	static {
 		String resource = "config/mybatis-config.xml";
@@ -34,19 +36,15 @@ public class SqlSessionFactoryUtil {
 	}
 
 	/*
-	 * 创建SqlSessionFactory工厂，工厂只有一个，所以做成单例模式
-	 * 此方法依赖 配置文件 mybatis-config.xml
+	 * 创建SqlSessionFactory工厂，工厂只有一个，所以做成单例模式 此方法依赖 配置文件 mybatis-config.xml
 	 */
 	private static SqlSessionFactory getSqlSessionFactory() {
-		//此方法为懒汉式单例模式，存在线程不安全
 		/*
-		 * 解决方案:
-		 * 			加锁 synchronized ，锁方法或变量
+		 * 懒汉式单例模式，存在线程不安全 解决方案: 加锁 synchronized ，锁方法或变量
 		 */
-		
-		if(sqlSessionFactory == null){	//写到这一层：懒汉式单例模式
-			synchronized (lock) {	//只写到这一层存在新能问题
-				if (sqlSessionFactory == null) {	//只写到这一层存在线程不安全问题：饿汉单例模式
+		if (sqlSessionFactory == null) { // 写到这一层：懒汉式单例模式
+			synchronized (lock) { // 只写到这一层存在性能问题。当某个线程在访问里面的代码时，会锁住代码，其他线程不能访问
+				if (sqlSessionFactory == null) { // 只写到这一层存在线程不安全问题：饿汉单例模式
 					sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 				}
 			}
@@ -63,5 +61,4 @@ public class SqlSessionFactoryUtil {
 		 */
 		return getSqlSessionFactory().openSession();
 	}
-
 }

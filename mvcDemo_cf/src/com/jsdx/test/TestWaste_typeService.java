@@ -10,7 +10,9 @@ package com.jsdx.test;
 import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -32,7 +34,7 @@ public class TestWaste_typeService {
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午4:46:54
 	 */
-	@Test
+	//@Test
 	public void find() {
 		System.out.println("-----start-----test-----find------------------------------");
 		Waste_typeService service = new Waste_typeService();
@@ -48,7 +50,7 @@ public class TestWaste_typeService {
 	 * @author: chenfa
 	 * @date: 2018年8月22日 下午7:23:41
 	 */
-	@Test
+	//@Test
 	public void add() {
 		System.out.println("-----start-----test-----add------------------------------");
 		/** 构建Waste_type对象，并为不能为空的列赋值 **/
@@ -149,5 +151,16 @@ public class TestWaste_typeService {
 		 * 此为格式化后的java.util.Date:2018-39-22 07:39:11 此为java.sql.Time:19:40:00
 		 * 此为java.sql.Date:2018-08-22
 		 */
+	}
+	
+	@Test
+	public void testGetPage(){
+		Map<String, Integer> map = new HashMap<>();
+		map.put("begin", 10);
+		map.put("end", 5);
+		List<Waste_type> list = new Waste_typeService().getPage(map);
+		for (Waste_type waste_type : list) {
+			System.out.println(waste_type);
+		}
 	}
 }

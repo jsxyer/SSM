@@ -9,6 +9,8 @@ package com.jsdx.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
+
 import com.jsdx.entity.Waste;
 
 /**
@@ -27,14 +29,29 @@ public interface WasteDao {
 	 * @date: 2018年8月23日 上午10:37:39
 	 * @return 封装后的List集合
 	 */
+	
+	//此为注解配置，注解配置和映射文件配置会有冲突
+	//@Select("select * from waste")
 	public List<Waste> find();
+
 	/**
 	 * @title: findByTypeId
 	 * @description: 根据废物类型的编号查询所有的废物信息
 	 * @author: chenfa
 	 * @date: 2018年8月23日 上午11:24:20
-	 * @param id 废物类型id
-	 * @return 
+	 * @param id
+	 *            废物类型id
+	 * @return 封装后的List集合
 	 */
 	public List<Waste> findByTypeId(int id);
+
+	/**
+	 * @title: findByLike
+	 * @description: 废物的模糊查询
+	 * @author: chenfa
+	 * @date: 2018年8月24日 下午2:54:41
+	 * @param condition
+	 * @return 封装后的List集合
+	 */
+	public List<Waste> findByLike(String condition);
 }

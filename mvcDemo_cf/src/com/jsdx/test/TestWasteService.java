@@ -33,11 +33,10 @@ public class TestWasteService {
 	 */
 	@Test
 	public void find() {
-		WasteService service = new WasteService();
-		List<Waste> list = service.find();
+		List<Waste> list = new  WasteService().find();
 		for (Waste waste : list) {
 			System.out.println(waste);
-		}			
+		}
 	}
 
 	/**
@@ -46,7 +45,7 @@ public class TestWasteService {
 	 * @author: chenfa
 	 * @date: 2018年8月23日 下午2:22:49
 	 */
-	//@Test
+	// @Test
 	public void findById() {
 		WasteService service = new WasteService();
 		List<Waste> list = service.findByTypeId(2);
@@ -61,7 +60,7 @@ public class TestWasteService {
 	 * @author: chenfa
 	 * @date: 2018年8月23日 下午2:23:12
 	 */
-	//@Test
+	// @Test
 	public void findByIdAll() {
 		List<Waste_type> waste_typeServices = new Waste_typeService().find();
 		for (Waste_type waste_type : waste_typeServices) {
@@ -71,6 +70,20 @@ public class TestWasteService {
 				System.out.println(waste);
 			}
 			System.out.println();
+		}
+	}
+
+	/**
+	 * @title: findByLike
+	 * @description: Like模糊查询;测试通过
+	 * @author: chenfa
+	 * @date: 2018年8月24日 下午3:15:14
+	 */
+	// @Test
+	public void findByLike() {
+		List<Waste> list = new WasteService().findByLike("%医%");
+		for (Waste waste : list) {
+			System.out.println(waste);
 		}
 	}
 }

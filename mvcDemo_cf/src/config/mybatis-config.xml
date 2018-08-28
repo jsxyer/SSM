@@ -4,19 +4,24 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <!-- 根节点，节点的名称是特有的，不能改变 -->
 <configuration>
+
 	<!-- 子节点的名称及顺序也是特定的 -->
 	<!-- 此节点的作用引用外部的属性文件，这个属性通常是连接数据库的相关信息 -->
 	<properties resource="config/jdbc.properties" />
+	
 	<!-- 设置MyBatis框架运行的参数，通常情况下，只需要运用它的默认环境 -->
 	<settings>
+		<!-- 打开二级缓存 -->
 		<setting name="cacheEnabled" value="true" />
 	</settings> 
+	
 	<!-- 给实体取别名，可以简化后面对实体对象的引用操作com.jsdx.entity.Waste_type -->
 	<typeAliases>
 		<!-- 一次只能给一个类声明别名，当一个项目中有很多类时，会导致代码冗余 -->
 		<!-- <typeAlias type="com.jsdx.entity.Waste_type" alias="Waste_type" /> -->
 		<package name="com.jsdx.entity" />
 	</typeAliases>
+	
 	<!-- 环境配置，MyBatis与数据库交互的环境，在开发中，可能会配置多个环境：开发，运行，测试 default：属性标识使用哪一个环境配置 -->
 	<!-- 对事务的管理和连接池的配置 -->
 	<environments default="development">
@@ -43,10 +48,9 @@
 	
 	<!-- 映射器配置，加载所有的映射文件或者是加载持久化接口 
 		MyBatis 映射文件可以使XML格式，也可以直接在持久化接口上加注解配置，
-		推荐使用xml格式，因为目前配置还不是非常的完善，导致有时需要写重复的代码，
+		推荐使用xml格式，因为目前注解配置还不是非常的完善，导致有时需要写重复的代码，
 		一个映射文件只针对一个表进行操作，映射文件的命名建议与数据持久化接口类名一致
 	-->
-	
 	<!-- mapping 文件路径配置 -->
 	<mappers>
 		<!-- 把这个包中所有的映射文件加载到MyBatis中，只能在映射文件与数据持久化接口类同一目录使用，
@@ -56,5 +60,8 @@
 		<mapper resource="com/jsdx/mapping/Waste_type.xml" />
 		<mapper resource="com/jsdx/mapping/Waste.xml"/>
 		<!-- <package name="com.jsdx.dao"/> -->
+		
+		<!-- 把数据持久化接口的类 映射到MyBatis中，此方法用于在类中使用注解配置SQL语句 -->
+		<!-- <mapper class="com.jsdx.dao.WasteDao"/> -->
 	</mappers>
 </configuration>
